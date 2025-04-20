@@ -1,0 +1,42 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}My QR Code - Attendance System{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1 class="mb-4">Your QR Code</h1>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-qrcode me-2"></i>QR Code for {{ member.full_name }}</h5>
+                </div>
+                <div class="card-body text-center">
+                    <div class="qr-container">
+                        <img src="data:image/png;base64,{{ qr_code_image }}" alt="Your QR Code" class="img-fluid">
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5>Student Information</h5>
+                        <p><strong>ID:</strong> {{ member.student_id }}</p>
+                        <p><strong>Name:</strong> {{ member.full_name }}</p>
+                        <p><strong>Section:</strong> {{ member.section }}</p>
+                    </div>
+                    
+                    <div class="alert alert-info mt-4">
+                        <i class="fas fa-info-circle me-2"></i> Show this QR code to the event organizer to mark your attendance.
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <button onclick="window.print();" class="btn btn-primary">
+                        <i class="fas fa-print me-2"></i> Print QR Code
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}Create Event - Attendance System{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h1 class="mb-4">Create New Event</h1>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Event Form -->
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-calendar-plus me-2"></i>Event Details</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label for="id_title" class="form-label">Event Title</label>
+                            <input type="text" name="title" class="form-control" id="id_title" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="id_description" class="form-label">Description</label>
+                            <textarea name="description" class="form-control" id="id_description" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="id_date" class="form-label">Date</label>
+                            <input type="date" name="date" class="form-control" id="id_date" required>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="id_start_time" class="form-label">Start Time</label>
+                                <input type="time" name="start_time" class="form-control" id="id_start_time" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="id_end_time" class="form-label">End Time</label>
+                                <input type="time" name="end_time" class="form-control" id="id_end_time" required>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Create Event</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <!-- Information Card -->
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>About Event Creation</h5>
+                </div>
+                <div class="card-body">
+                    <p>After creating an event, you will be redirected to the event page where you can:</p>
+                    <ul>
+                        <li>Scan QR codes to register attendance</li>
+                        <li>View a list of attendees in real-time</li>
+                        <li>Export attendance reports</li>
+                    </ul>
+                    
+                    <div class="alert alert-warning mt-3">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <strong>Note:</strong> Make sure to specify accurate event times, as members will only be able to register attendance between the start and end times.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
