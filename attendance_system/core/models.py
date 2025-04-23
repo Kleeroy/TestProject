@@ -1,4 +1,4 @@
-from django.db import models
+
 
 # Create your models here.
 from django.db import models
@@ -10,6 +10,8 @@ class Member(models.Model):
     student_id = models.CharField(max_length=20, unique=True)
     section = models.CharField(max_length=10)
     is_admin = models.BooleanField(default=False)
+
+   
     
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name} ({self.student_id})"

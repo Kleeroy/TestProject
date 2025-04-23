@@ -6,13 +6,14 @@ from . import views
 
 urlpatterns = [
     # Authentication
-    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('register/', views.register, name='register'),
+    path('redirect/', views.redirect_after_login, name='redirect_after_login'),
 
     # Common
     path('', views.home, name='home'),
-    
+
     # Member
     path('member/home/', views.member_home, name='member_home'),
     path('member/qr-code/', views.member_qr_code, name='member_qr_code'),

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+
 
 # Create your views here.
 from django.shortcuts import render, redirect, get_object_or_404
@@ -42,6 +42,13 @@ def home(request):
     except Member.DoesNotExist:
         messages.error(request, 'Member profile not found.')
         return redirect('login')
+
+def redirect_after_login(request):
+    if request.user.is_superuser:
+        return redirect('admin_home')
+    else:
+        # For regular members
+        return redirect('member_home')
 
 @login_required
 def admin_home(request):

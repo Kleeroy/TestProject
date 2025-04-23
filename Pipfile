@@ -10,6 +10,8 @@ crispy-bootstrap5 = "*"
 pycryptodome = "*"
 qrcode = "*"
 pillow = "*"
+pandas = "*"
+openpyxl = "*"
 
 [dev-packages]
 
